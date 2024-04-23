@@ -4,22 +4,33 @@
     <slot name="user-header"></slot>
 
     <div class="skill-header">
-      <slot name="content"></slot>
+      <slot name="skill-header"></slot>
     </div>
+
+    <slot name="java"></slot>
+    <slot name="type"></slot>
   </div>
 </template>
 
 <script setup lang="ts">
+interface User {
+  id: number;
+  name: string;
+}
+
+interface Skill {
+  id: number;
+  name: string;
+}
+
 interface Props {
-  users: string;
-  skills: string;
+  users: User[];
+  skills: Skill[];
 }
 
 const props = defineProps<Props>();
 
 const horizontalLength = props.users.length + 1;
-
-console.log(props.users);
 </script>
 
 <style lang="scss" scoped>
@@ -49,7 +60,7 @@ console.log(props.users);
   border: 1px solid #000;
 }
 
-::v-slotted(.skill-header > .skill-header-item) {
+::v-slotted(.skill-header > div) {
   grid-column-start: 1;
 }
 </style>

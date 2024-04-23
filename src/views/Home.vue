@@ -6,15 +6,13 @@
           {{ user.name }}
         </div>
       </template>
-      <template #content>
-        <template v-for="skill in skills" :key="skill.id">
-          <div class="skill-header-item">
-            {{ skill.name }}
-          </div>
-          <div v-for="user in users" :key="user.id">
-            <input type="checkbox" />
-          </div>
-        </template>
+      <template #skill-header>
+        <div v-for="skill in skills" :key="skill.id">
+          {{ skill.name }}
+        </div>
+      </template>
+      <template v-for="name in skillNames" :key="name" #[name]>
+        <div>{{ name }}</div>
       </template>
     </MatrixContainer>
   </div>
@@ -40,13 +38,14 @@ const users: User[] = [
 ];
 
 const skills: Skill[] = [
-  { id: 1, name: 'JavaScript' },
-  { id: 2, name: 'TypeScript' },
-  { id: 3, name: 'Vue.js' }
+  { id: 1, name: 'java' },
+  { id: 2, name: 'type' },
+  { id: 3, name: 'vue' }
 ];
 
 const elementLength = skills.length * users.length;
+
+const skillNames = skills.map((skill) => skill.name);
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
