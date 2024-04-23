@@ -1,17 +1,21 @@
 <template>
   <div class="container">
     <MatrixContainer :users="users" :skills="skills">
-      <!-- <template #user-header> </template>
-           <template #skill-header> </template>
-           <template #content> </template> -->
       <template #user-header>
         <div v-for="user in users" :key="user.id">
           {{ user.name }}
         </div>
       </template>
-      <div v-for="skill in skills" :key="skill.id">
-        {{ skill.name }}
-      </div>
+      <template #skill-header>
+        <div v-for="skill in skills" :key="skill.id">
+          {{ skill.name }}
+        </div>
+      </template>
+      <template #content>
+        <div v-for="i in elementLength" :key="i">
+          <div>element</div>
+        </div>
+      </template>
     </MatrixContainer>
   </div>
 </template>
@@ -30,7 +34,7 @@ interface Skill {
 }
 
 const users: User[] = [
-  { id: 1, name: 'Alice' },
+  { id: 1, name: 'Aliceだよーーーーーん' },
   { id: 2, name: 'Bob' },
   { id: 3, name: 'Charlie' }
 ];
@@ -40,6 +44,8 @@ const skills: Skill[] = [
   { id: 2, name: 'TypeScript' },
   { id: 3, name: 'Vue.js' }
 ];
+
+const elementLength = skills.length * users.length;
 </script>
 
 <style lang="scss" scoped>
