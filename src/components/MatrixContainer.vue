@@ -4,8 +4,9 @@
     <slot name="user-header"></slot>
 
     <div class="skill-header">
-      <slot name="skill-header"></slot>
+      <slot name="content"></slot>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -45,10 +46,10 @@ console.log(props.users);
 }
 
 ::v-slotted(div) {
-    border: 1px solid #000;
+  border: 1px solid #000;
 }
 
-::v-slotted(.skill-header > div) {
+::v-slotted(.skill-header > .skill-header-item) {
   grid-column-start: 1;
 }
 </style>

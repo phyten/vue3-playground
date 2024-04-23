@@ -6,15 +6,15 @@
           {{ user.name }}
         </div>
       </template>
-      <template #skill-header>
-        <div v-for="skill in skills" :key="skill.id">
-          {{ skill.name }}
-        </div>
-      </template>
       <template #content>
-        <div v-for="i in elementLength" :key="i">
-          <div>element</div>
-        </div>
+        <template v-for="skill in skills" :key="skill.id">
+          <div class="skill-header-item">
+            {{ skill.name }}
+          </div>
+          <div v-for="user in users" :key="user.id">
+            <input type="checkbox" />
+          </div>
+        </template>
       </template>
     </MatrixContainer>
   </div>
