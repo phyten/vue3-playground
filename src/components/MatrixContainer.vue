@@ -1,15 +1,8 @@
 <template>
   <div class="matrix-container">
     <div class="blank">空タグ</div>
-    <template v-for="user in props.users" :key="user.id">
-      <slot name="user-header"></slot>
-    </template>
-    <div class="skill-header">
-      <slot name="skill-header"></slot>
-    </div>
-
-    <slot name="java"></slot>
-    <slot name="type"></slot>
+    <slot name="user-header"></slot>
+    <slot></slot>
   </div>
 </template>
 
@@ -31,7 +24,7 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const horizontalLength = props.users.length + 1;
+const horizontalLength = props.users.length;
 </script>
 
 <style lang="scss" scoped>

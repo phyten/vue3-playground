@@ -1,19 +1,6 @@
 <template>
   <div class="container">
     <MatrixContainer :users="users" :skills="skills">
-      <template #user-header>
-        <div v-for="user in users" :key="user.id">
-          {{ user.name }}
-        </div>
-      </template>
-      <template #skill-header>
-        <div v-for="skill in skills" :key="skill.id">
-          {{ skill.name }}
-        </div>
-      </template>
-      <template v-for="name in skillNames" :key="name" #[name]>
-        <div>{{ name }}</div>
-      </template>
     </MatrixContainer>
   </div>
 </template>
