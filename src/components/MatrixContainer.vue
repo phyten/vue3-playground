@@ -50,6 +50,7 @@ const horizontalLength = props.users.length;
   gap: 0;
   height: 90vh;
   overflow: scroll;
+  border: 1px solid #000;
 }
 
 .blank {
@@ -60,18 +61,28 @@ const horizontalLength = props.users.length;
   display: contents;
 }
 
-.blank,
-.user-header-item {
-  padding: 0.1rem 1rem;
+.blank {
+  padding: 0.3rem 1rem;
   background-color: #f0f0f0;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.user-header-item {
+  padding: 0.3rem 1rem;
+  background-color: #f0f0f0;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border-left: 1px solid #000;
+
+  &:not(:first-child) {
+    border-left: 1px solid #000;
+  }
 }
 
 .user-header-item {
   min-width: 120px;
   text-align: center;
-  /* overflow: hidden;
-     text-overflow: ellipsis;
-     white-space: nowrap; */
 }
 
 .content-wrapper {
@@ -84,9 +95,19 @@ const horizontalLength = props.users.length;
 
 .skill-header-item {
   grid-column-start: 1;
+  padding: 0.3rem 1rem;
+  font-weight: bold;
 }
 
 .content-cell {
+  border-left: 1px solid #000;
+  padding: 0.3rem 0;
+  text-align: center;
+}
+
+.skill-header-item,
+.content-cell {
+  border-top: 1px solid #000;
 }
 
 ::v-slotted(div) {
