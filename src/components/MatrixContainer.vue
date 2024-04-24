@@ -1,8 +1,9 @@
 <template>
   <div class="matrix-container">
     <div class="blank">空タグ</div>
-    <slot name="user-header"></slot>
-
+    <template v-for="user in props.users" :key="user.id">
+      <slot name="user-header"></slot>
+    </template>
     <div class="skill-header">
       <slot name="skill-header"></slot>
     </div>
