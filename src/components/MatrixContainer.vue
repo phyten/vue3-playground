@@ -66,6 +66,8 @@ const horizontalLength = props.users.length;
   background-color: #f0f0f0;
   font-weight: bold;
   font-size: 0.8rem;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
 }
 
 .user-header-item {
@@ -75,19 +77,14 @@ const horizontalLength = props.users.length;
   background-color: #f0f0f0;
   font-weight: bold;
   font-size: 0.8rem;
-  border-left: 1px solid #000;
   min-width: 120px;
   text-align: center;
   z-index: 1;
+  border-bottom: 1px solid #000000;
 
   &:not(:first-child) {
     border-left: 1px solid #000;
   }
-}
-
-.user-header-item {
-  min-width: 120px;
-  text-align: center;
 }
 
 .content-wrapper {
@@ -98,6 +95,12 @@ const horizontalLength = props.users.length;
   display: contents;
 }
 
+.content-row:not(:first-child) {
+  > * {
+    border-top: 1px solid #000;
+  }
+}
+
 .skill-header-item {
   position: sticky;
   left: 0;
@@ -105,19 +108,18 @@ const horizontalLength = props.users.length;
   padding: 0.3rem 1rem;
   font-weight: bold;
   background-color: #f0f0f0;
+  border-right: 1px solid #000000;
   z-index: 1;
 }
 
 .content-cell {
-  border-left: 1px solid #000;
   padding: 0.3rem 0;
   text-align: center;
   min-width: 120px;
-}
 
-.skill-header-item,
-.content-cell {
-  border-top: 1px solid #000;
+  &:not(:nth-child(2)) {
+    border-left: 1px solid #000;
+  }
 }
 
 ::v-slotted(div) {
