@@ -99,15 +99,20 @@ const horizontalLength = props.users.length;
 }
 
 .skill-header-item {
+  position: sticky;
+  left: 0;
   grid-column-start: 1;
   padding: 0.3rem 1rem;
   font-weight: bold;
+  background-color: #f0f0f0;
+  z-index: 1;
 }
 
 .content-cell {
   border-left: 1px solid #000;
   padding: 0.3rem 0;
   text-align: center;
+  min-width: 120px;
 }
 
 .skill-header-item,
