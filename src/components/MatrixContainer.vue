@@ -1,8 +1,8 @@
 <template>
   <div class="matrix-container">
-    <div class="blank">空タグ</div>
-    <div v-for="user in props.users" :key="user.id" class="user-header">
-      <div class="user-header-item">{{ user.name }}</div>
+    <div class="blank">スキル</div>
+    <div class="user-header">
+      <div v-for="user in props.users" :key="user.id" class="user-header-item">{{ user.name }}</div>
     </div>
     <div class="content-wrapper">
       <div v-for="skill in props.skills" :key="skill.id" class="content-row">
@@ -39,18 +39,17 @@ const horizontalLength = props.users.length;
 </script>
 
 <style lang="scss" scoped>
-.matrix-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: max-content repeat(v-bind(horizontalLength), minmax(auto, max-content));
-  gap: 1rem;
+* {
+  box-sizing: border-box;
+}
 
-  > :not(:first-child) {
-    /* max-width: 200px; */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+.matrix-container {
+  width: 90vw;
+  display: grid;
+  grid-template-columns: max-content repeat(v-bind(horizontalLength), max-content);
+  gap: 0;
+  height: 90vh;
+  overflow: scroll;
 }
 
 .blank {
@@ -59,6 +58,20 @@ const horizontalLength = props.users.length;
 
 .user-header {
   display: contents;
+}
+
+.blank,
+.user-header-item {
+  padding: 0.1rem 1rem;
+  background-color: #f0f0f0;
+}
+
+.user-header-item {
+  min-width: 120px;
+  text-align: center;
+  /* overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap; */
 }
 
 .content-wrapper {
