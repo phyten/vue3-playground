@@ -69,11 +69,16 @@ const horizontalLength = props.users.length;
 }
 
 .user-header-item {
+  position: sticky;
+  top: 0;
   padding: 0.3rem 1rem;
   background-color: #f0f0f0;
   font-weight: bold;
   font-size: 0.8rem;
   border-left: 1px solid #000;
+  min-width: 120px;
+  text-align: center;
+  z-index: 1;
 
   &:not(:first-child) {
     border-left: 1px solid #000;
