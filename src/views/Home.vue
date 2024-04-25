@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <MatrixContainer :users="users" :skills="skills">
-      <template #evaluation> good </template>
+      <template #evaluation="{ userId, skillId }"> {{ getUserName(userId) }} {{ getSkillName(skillId) }} </template>
     </MatrixContainer>
   </div>
 </template>
@@ -92,9 +92,10 @@ const skills: Skill[] = [
   { id: 39, name: 'Symfony' }
 ];
 
-const elementLength = skills.length * users.length;
+const getUserName = (userId: number) => users.find(user => user.id === userId)?.name;
 
-const skillNames = skills.map((skill) => skill.name);
+const getSkillName = (skillId: number) => skills.find(skill => skill.id === skillId)?.name;
+
 </script>
 
 <style lang="scss" scoped></style>

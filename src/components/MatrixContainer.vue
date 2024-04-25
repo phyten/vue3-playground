@@ -10,7 +10,7 @@
           {{ skill.name }}
         </div>
         <div v-for="user in props.users" :key="user.id" class="content-cell">
-          <slot name="evaluation"></slot>
+          <slot name="evaluation" :user-id="user.id" :skill-id="skill.id"></slot>
         </div>
       </div>
     </div>
@@ -53,15 +53,16 @@ const horizontalLength = props.users.length;
   border: 1px solid #000;
 }
 
-.blank {
-  grid-column-start: 1;
-}
-
 .user-header {
   display: contents;
 }
 
 .blank {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  grid-column-start: 1;
   padding: 0.3rem 1rem;
   background-color: #f0f0f0;
   font-weight: bold;
@@ -79,7 +80,7 @@ const horizontalLength = props.users.length;
   font-size: 0.8rem;
   min-width: 120px;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
   border-bottom: 1px solid #000000;
 
   &:not(:first-child) {
